@@ -19,6 +19,6 @@ public class ErrorMessage {
         if(ofStatic != null){
             builder.append(" : " + ofStatic);
         }
-        return null;
+        return builder.toString();
     }
 }
