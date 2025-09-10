@@ -3,6 +3,7 @@ package com.muhammetakduman.starter.controller.impl;
 
 import com.muhammetakduman.starter.controller.RestEmployeeController;
 import com.muhammetakduman.starter.dto.DtoEmployee;
+import com.muhammetakduman.starter.entitiy.RootEntitiy;
 import com.muhammetakduman.starter.service.IEmployeeService;
 import com.muhammetakduman.starter.service.impl.EmployeeServiceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("rest/api/employee")
-public class RestEmployeeControllerimpl implements RestEmployeeController {
+public class RestEmployeeControllerimpl extends RestBaseController implements RestEmployeeController {
     @Autowired
     private IEmployeeService employeeService;
 
     @GetMapping("/list/{id}")
     @Override
-    public DtoEmployee findEmployeeById(@PathVariable(value = "id") Long id) {
-        return employeeService.findEmployeeById(id);
+    public RootEntitiy<DtoEmployee> findEmployeeById(@PathVariable(value = "id") Long id) {
+        return ok(employeeService.findEmployeeById(id));
     }
 }

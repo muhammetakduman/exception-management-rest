@@ -1,7 +1,8 @@
 package com.muhammetakduman.starter.controller;
 
 import com.muhammetakduman.starter.dto.DtoEmployee;
+import com.muhammetakduman.starter.entitiy.RootEntitiy;
 
 public interface RestEmployeeController {
-    public DtoEmployee findEmployeeById(Long id);
+    public RootEntitiy<DtoEmployee> findEmployeeById(Long id);
 }
